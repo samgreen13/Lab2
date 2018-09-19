@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 750px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [0, 0],
+              zoom: 2
+          });
+
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 3,
+               minZoom: 2
+            }).addTo(map);
+			
+		  var mountainIcon = L.icon({
+			  iconUrl: 'mountain.png', // url that links to the icon image file
+			  iconSize:     [24, 24], // size of the icon image in pixels
+			});
+			
+		  var asteriskIcon = L.icon({
+			  iconUrl: 'asterisk.png',
+			  iconSize:  [20, 20],
+			});
+
+		 var marker1 = L.marker([-3.0674,37.3566], {icon: mountainIcon}).addTo(map);
+		 var marker2 = L.marker([63.0692,-151.0070], {icon: mountainIcon}).addTo(map);
+		 var marker3 = L.marker([-32.6532,-70.0109], {icon: mountainIcon}).addTo(map);
+		 var marker4 = L.marker([27.9881,86.9250], {icon: mountainIcon}).addTo(map);
+		 var marker5 = L.marker([-78.6341,-85.2135], {icon: mountainIcon}).addTo(map);
+		 var marker6 = L.marker([-36.4559,148.2636], {icon: mountainIcon}).addTo(map);
+		 var marker7 = L.marker([43.3499,42.4453], {icon: mountainIcon}).addTo(map);
+		 var marker8 = L.marker([45.8326,6.8652], {icon: asteriskIcon}).addTo(map);
+		 var marker9 = L.marker([-4.0846,137.1866], {icon: asteriskIcon}).addTo(map);
+		
+		  var pic1 = '<img src="https://cdn.tourradar.com/s3/tour/750x400/68771_7faffe04.jpg" alt="Mt Kilimanjaro" width="250">';
+		  var pic2 = '<img src="https://brushbucktours.com/wp-content/uploads/2015/03/mt-mckinley-alaska-denali-national-park.jpg" alt="Denali/Mt McKinley" width="250">';
+		  var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Monte_Aconcagua.jpg/500px-Monte_Aconcagua.jpg" alt="Mt Aconcagua" width="250">';
+		  var pic4 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg/576px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg" alt="Mt Everest" width="250">';
+		  var pic5 = '<img src="https://antarctic-logistics.com/wp-content/uploads/2016/07/destination-mount-vinson.jpg" alt="Mt Vinson/Vinson Massif" width="250">';
+		  var pic6 = '<img src="https://80d2853cc4def76b377d-54344bc01a8b066c84096a8e7a3499ac.ssl.cf1.rackcdn.com/large/252593.jpg" alt="Mt Kosciuszco" width="250">';
+		  var pic7 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/%D0%AD%D0%BB%D1%8C%D0%B1%D1%80%D1%83%D1%81_%D1%81_%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%BB%D0%B0_%D0%93%D1%83%D0%BC%D0%B1%D0%B0%D1%88%D0%B8.JPG/560px-%D0%AD%D0%BB%D1%8C%D0%B1%D1%80%D1%83%D1%81_%D1%81_%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%D0%BB%D0%B0_%D0%93%D1%83%D0%BC%D0%B1%D0%B0%D1%88%D0%B8.JPG" alt="Mt Elbrus" width="250">';
+		  var pic8 = '<img src="https://snowbrains.com/wp-content/uploads/2017/07/408421-min.jpg" alt="Mt Blanc" width="250">';
+		  var pic9 = '<img src="http://www.gunungbagging.com/wp-content/NEXTGEN/PuncakJaya/Puncak%20Jaya%20%28left%29%20and%20Sumantri%20%28Robert%20Cassady%2C%202010%29.jpg" alt="Puncak Jaya" width="250">';
+		  
+		  marker1.bindPopup('Mt Kilimanjaro' + '<br>' + '19,340 feet (5895 meters)' + '<br>' + pic1);
+		  marker2.bindPopup('Denali/Mt McKinley' + '<br>' + '20,320 feet (6194 meters)' + '<br>' + pic2);
+		  marker3.bindPopup('Mt Aconcagua' + '<br>' + '22,829 feet (6962 meters)' + '<br>' + pic3);
+		  marker4.bindPopup('Mt Everest' + '<br>' + '29,035 feet (8850 meters)' + '<br>' + pic4);
+		  marker5.bindPopup('Mt Vinson/Vinson Massif' + '<br>' + '16,067 feet (4897 meters)' + '<br>' + pic5);
+		  marker6.bindPopup('Mt Kosciuszco' + '<br>' + '7,310 feet (2228 meters)' + '<br>' + pic6);
+		  marker7.bindPopup('Mt Elbrus' + '<br>' + '18,510 feet (5642 meters)' + '<br>' + pic7);
+		  marker8.bindPopup('Mt Blanc' + '<br>' + '15,777 feet (4808 meters)' + '<br>' + 'Mt Elbrus is part of the Caucasus mountain range, which forms the dividing line between Europe and Asia. By definition, the Eastern half of the mountain is in Asia, with the peak being in Europe on a technicality. As a result, some preclude it from the highest mountain list, and instead choose Mont Blanc, which is the highest peak completely contained in Europe.' + '<br>' + pic8);
+		  marker9.bindPopup('Puncak Jaya' + '<br>' + '16,024 feet (4884 meters)' +  '<br>' + "While Mt Kosciuszco is the highest peak in Australia, Puncak Jaya is the highest peak in Oceania. Consequently, it's place in the 7 highest peaks per continent list is debatable, and depends on your classification of 'continent'" + '<br>' + pic9);
+		   
+		   
+        </script>
+		
+		<div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Goal">Goal</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+		
+		<div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Asterisk">Asterisk</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+   </body>
+</html>
